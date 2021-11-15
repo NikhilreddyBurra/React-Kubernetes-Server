@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: kml-sample-app
-        image: abhinav332/kml-app:latest
+        image: imagename/kml-app:latest
         ports:
         - containerPort: 3000
 
