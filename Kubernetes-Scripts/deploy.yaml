@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kml-sample-app
+  labels:
+    app: kml-sample-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kml-sample-app
+  template:
+    metadata:
+      labels:
+        app: kml-sample-app
+    spec:
+      containers:
+      - name: kml-sample-app
+        image: abhinav332/kml-app:latest
+        ports:
+        - containerPort: 3000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kml-sample-app
+spec:
+  ports:
+  - port: 80
+    targetPort: 3000
+  selector:
+    app: kml-sample-app
